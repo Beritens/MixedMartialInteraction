@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class Health : MonoBehaviour
 {
     public float maxHealth = 100;
     private float health = 100;
 
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
 
     public float GetHealth()
     {
