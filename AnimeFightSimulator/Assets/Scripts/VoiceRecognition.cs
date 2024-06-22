@@ -15,6 +15,10 @@ public class VoiceAndLoudnessController : MonoBehaviour
     private float currentUpdateTime = 0f;
     private float[] clipSampleData;
     
+    public ParticleSystem beamEffect; // Reference to the beam particle system
+    public ChargeBar chargeBar;
+
+    
     void Start()
     {
         // Setup the microphone and audio source
@@ -27,7 +31,8 @@ public class VoiceAndLoudnessController : MonoBehaviour
         clipSampleData = new float[sampleDataLength];
 
         // Setup voice commands
-        actions.Add("test", () => TestCommand());
+        actions.Add("beam", () => Beam());
+        
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
@@ -47,7 +52,14 @@ public class VoiceAndLoudnessController : MonoBehaviour
             }
             clipLoudness = Mathf.Sqrt(clipLoudness / sampleDataLength); // RMS of samples
 
-            Debug.Log("Current Audio Loudness: " + clipLoudness);
+            
+            
+            if (clipLoudness >= 0.4)
+            {
+                Debug.Log("Adding Charge");
+                chargeBar.addCharge();
+            }
+            
         }
     }
 
@@ -60,10 +72,14 @@ public class VoiceAndLoudnessController : MonoBehaviour
         }
     }
 
-    private void TestCommand()
+    private void Beam()
     {
-        Debug.Log("TEST command recognized");
-        // Additional functionality for the TEST command can go here.
+        Debug.Log("BEAM ACTIVATED");
+        if (beamEffect != null && chargeBar.isCharged())
+        {
+            beamEffect.Play(); // Play the beam particle system
+            chargeBar.deplete();
+        }
     }
 
     void OnDestroy()
