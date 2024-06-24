@@ -60,9 +60,13 @@ namespace Mediapipe.Unity.Sample.HandTracking
         {
           hands[i].Add(new Vector3(0, 0, 0));
           //continue;
-          var obj = Instantiate(dotPrefabs[i]);
-          obj.name = j.ToString();
-          HandObjects[i].Add(obj.transform);
+          if (!bones)
+          {
+            var obj = Instantiate(dotPrefabs[i]);
+            obj.name = j.ToString();
+            HandObjects[i].Add(obj.transform);
+            
+          }
         }
       }
     }
@@ -221,7 +225,9 @@ namespace Mediapipe.Unity.Sample.HandTracking
             // hands[h][i].x = landmark.X;
             // hands[h][i].y = landmark.Y;
             // hands[h][i].z = landmark.Z * 100;
-            int index = handednussy[h].Classification[0].Label == "Left" ? 0 : 1;
+            Debug.Log(handednussy[h].Classification[0].Label);
+            int index = handednussy[h].Classification[0].Label.Contains("L") ? 0 : 1;
+            Debug.Log(index);
             hands[index][i] = base_pos*handScale + (Vector3.Scale(new Vector3(landmark.X, landmark.Y, landmark.Z)-baseVector, new Vector3(handScale,-handScale,-handScale)));
             middles[index] += hands[index][i] * (1f / 21f);
 
