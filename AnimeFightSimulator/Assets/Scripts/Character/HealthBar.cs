@@ -5,7 +5,7 @@ public class HealthBar : MonoBehaviour
 {
     private Image healthBarFill;
 
-    void Start()
+    void Awake()
     {
         healthBarFill = GetComponent<Image>();
     }
