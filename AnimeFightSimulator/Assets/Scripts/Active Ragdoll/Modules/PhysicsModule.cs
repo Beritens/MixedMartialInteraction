@@ -91,13 +91,17 @@ namespace ActiveRagdoll {
                     balancePercent = uprightTorqueFunction.Evaluate(balancePercent);
                     var rot = Quaternion.FromToRotation(_activeRagdoll.PhysicalTorso.transform.up,
                                                          Vector3.up).normalized;
+                    _activeRagdoll.PhysicalTorso.maxAngularVelocity = 1000000000000000000;
+                    _activeRagdoll.PhysicalTorso.maxLinearVelocity = 100000000000000000;
+                    //_activeRagdoll.PhysicalTorso.AddTorque(new Vector3(-500,0,0));
+                    Debug.Log("Toque Time");
 
                     _activeRagdoll.PhysicalTorso.AddTorque(new Vector3(rot.x, rot.y, rot.z)
                                                                 * uprightTorque * balancePercent);
-
-                    var directionAnglePercent = Vector3.SignedAngle(_activeRagdoll.PhysicalTorso.transform.forward,
-                                        TargetDirection, Vector3.up) / 180;
-                    _activeRagdoll.PhysicalTorso.AddRelativeTorque(0, directionAnglePercent * rotationTorque, 0);
+                    
+                    // var directionAnglePercent = Vector3.SignedAngle(_activeRagdoll.PhysicalTorso.transform.forward,
+                    //                     TargetDirection, Vector3.up) / 180;
+                    // _activeRagdoll.PhysicalTorso.AddRelativeTorque(0, directionAnglePercent * rotationTorque, 0);
                     break;
 
                 case BALANCE_MODE.FREEZE_ROTATIONS:

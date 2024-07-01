@@ -9,6 +9,9 @@ public class PhyHandsSimple : MonoBehaviour
     public HandTracking tracking;
     // Start is called before the first frame update
     private List<List<PID>> pids = new List<List<PID>>();
+    public float p = 30;
+    public float i = 0.1f;
+    public float d = 20;
     [SerializeField]
     private List<Rigidbody> rbs;
     
@@ -20,7 +23,7 @@ public class PhyHandsSimple : MonoBehaviour
                 List<PID> xyz = new List<PID>();
                 for (int b = 0; b < 3; b++)
                 {
-                    xyz.Add(new PID(30f,0.1f,20f));
+                    xyz.Add(new PID(p,i,d));
                 }
                 pids.Add(xyz);
         }
