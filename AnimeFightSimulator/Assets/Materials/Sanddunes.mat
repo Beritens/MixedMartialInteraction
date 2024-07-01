@@ -136,8 +136,8 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SandHighColor: {r: 1, g: 0.96998286, b: 0.8349056, a: 0}
-    - _SandLowColor: {r: 0.9433962, g: 0.8975175, b: 0.6719473, a: 0}
-    - _ShineColor: {r: 1, g: 0.88004905, b: 0.514151, a: 0}
+    - _SandLowColor: {r: 0.94509804, g: 0.7638498, b: 0.67058825, a: 0}
+    - _ShineColor: {r: 1, g: 0.763399, b: 0.5137255, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SubstrateColor: {r: 0.87608534, g: 0.8773585, b: 0.7821734, a: 0}
     - _UVTiling: {r: 2, g: 2, b: 0, a: 0}
