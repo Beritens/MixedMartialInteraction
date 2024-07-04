@@ -226,7 +226,7 @@ namespace Mediapipe.Unity.Sample.HandTracking
             // hands[h][i].y = landmark.Y;
             // hands[h][i].z = landmark.Z * 100;
             int index = handednussy[h].Classification[0].Label.Contains("L") ? 0 : 1;
-            hands[index][i] = base_pos*handScale + (Vector3.Scale(new Vector3(landmark.X, landmark.Y, landmark.Z)-baseVector, new Vector3(handScale,-handScale,-handScale)));
+            hands[index][i] = transform.position + base_pos*handScale + (Vector3.Scale(new Vector3(landmark.X, landmark.Y, landmark.Z)-baseVector, new Vector3(handScale,-handScale,-handScale)));
             middles[index] += hands[index][i] * (1f / 21f);
 
           }

@@ -14,6 +14,8 @@ public class VoiceAndLoudnessController : MonoBehaviour
     public int sampleDataLength = 1024;
     private float currentUpdateTime = 0f;
     private float[] clipSampleData;
+
+    public float chargeThreshold;
     
     public ParticleSystem beamEffect; // Reference to the beam particle system
     public ChargeBar chargeBar;
@@ -33,7 +35,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
         // Setup voice commands
         actions.Add("beam", () => Beam());
         
-        keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray());
+        keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray(), ConfidenceLevel.Low);
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
         keywordRecognizer.Start();
     }
@@ -54,7 +56,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
 
             
             
-            if (clipLoudness >= 0.4)
+            if (clipLoudness >= chargeThreshold)
             {
                 Debug.Log("Adding Charge");
                 chargeBar.addCharge();

@@ -94,7 +94,6 @@ namespace ActiveRagdoll {
                     _activeRagdoll.PhysicalTorso.maxAngularVelocity = 1000000000000000000;
                     _activeRagdoll.PhysicalTorso.maxLinearVelocity = 100000000000000000;
                     //_activeRagdoll.PhysicalTorso.AddTorque(new Vector3(-500,0,0));
-                    Debug.Log("Toque Time");
 
                     _activeRagdoll.PhysicalTorso.AddTorque(new Vector3(rot.x, rot.y, rot.z)
                                                                 * uprightTorque * balancePercent);

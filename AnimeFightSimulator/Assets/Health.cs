@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     public float maxHealth = 100;
     private float health = 100;
 
+    public event EventHandler<float> OnHealthChange; 
+
 
     private void Start()
     {
@@ -27,6 +29,7 @@ public class Health : MonoBehaviour
         {
             Die();
         }
+        OnHealthChange?.Invoke(this,health);
         return health;
     }
 
