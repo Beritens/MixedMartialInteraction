@@ -17,7 +17,8 @@ public class VoiceAndLoudnessController : MonoBehaviour
 
     public float chargeThreshold;
     
-    public ParticleSystem beamEffect; // Reference to the beam particle system
+    //public ParticleSystem beamEffect; // Reference to the beam particle system
+    public Beam beam;
     public ChargeBar chargeBar;
 
     
@@ -77,9 +78,9 @@ public class VoiceAndLoudnessController : MonoBehaviour
     private void Beam()
     {
         Debug.Log("BEAM ACTIVATED");
-        if (beamEffect != null && chargeBar.isCharged())
+        if (chargeBar.isCharged())
         {
-            beamEffect.Play(); // Play the beam particle system
+            beam.FireBeam(); // Play the beam particle system
             chargeBar.deplete();
         }
     }
