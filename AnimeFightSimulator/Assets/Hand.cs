@@ -10,6 +10,7 @@ public class Hand : MonoBehaviour
     private AttackAttributes _attackAttributes = new AttackAttributes();
     public bool left;
     public AttackTracker _attackTracker;
+    public SoundHandler soundHandler;
 
 
     private void Start()
@@ -34,6 +35,7 @@ public class Hand : MonoBehaviour
             _attackAttributes.knockback = force * rb.velocity.magnitude;
             _attackAttributes.direction = rb.velocity.normalized;
            dam.Damage(  _attackAttributes); 
+           soundHandler.PlayPunch();
         }
     }
 }

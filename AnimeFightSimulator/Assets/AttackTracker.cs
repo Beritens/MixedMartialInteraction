@@ -22,7 +22,6 @@ public class AttackTracker : MonoBehaviour
     private AttackState leftAttackState = AttackState.Idle;
 
     public Beam beam;
-    
 
     private bool blackFlashLeft = false;
     private bool blackFlashRight = false;
@@ -32,7 +31,8 @@ public class AttackTracker : MonoBehaviour
     public Rigidbody handRight;
 
     public event EventHandler OnBlackFlashRight; 
-    public event EventHandler OnBlackFlashLeft; 
+    public event EventHandler OnBlackFlashLeft;
+    public SoundHandler soundHandler;
     
     public bool GetIsAttacking()
     {
@@ -71,6 +71,7 @@ public class AttackTracker : MonoBehaviour
         {
             if (rb.velocity.magnitude >= attackSpeed)
             {
+                soundHandler.PlayWhoosh();
                 attackState = AttackState.Attacking;
             }
             else
