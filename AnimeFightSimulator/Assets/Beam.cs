@@ -36,8 +36,9 @@ public class Beam : MonoBehaviour
             return;
         }
         RaycastHit hit;
+        vfx.SetFloat("size",400);
                 // Does the ray intersect any objects excluding the player layer
-                if (Physics.CapsuleCast(transform.position, transform.position,0.5f,  transform.forward ,out hit, Mathf.Infinity, beamMask))
+                if (Physics.SphereCast(transform.position, 0.5f,  transform.forward ,out hit, Mathf.Infinity, beamMask))
                 {
                     
                     Damagable dm = hit.collider.GetComponentInParent<Damagable>();

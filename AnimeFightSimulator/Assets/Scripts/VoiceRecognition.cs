@@ -21,6 +21,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
     public Beam beam;
     public ChargeBar chargeBar;
 
+    public AttackTracker attackTracker;
     
     void Start()
     {
@@ -35,6 +36,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
 
         // Setup voice commands
         actions.Add("beam", () => Beam());
+        actions.Add("ha", () => Ha());
         
         keywordRecognizer = new KeywordRecognizer(actions.Keys.ToArray(), ConfidenceLevel.Low);
         keywordRecognizer.OnPhraseRecognized += RecognizedSpeech;
@@ -59,7 +61,6 @@ public class VoiceAndLoudnessController : MonoBehaviour
             
             if (clipLoudness >= chargeThreshold)
             {
-                Debug.Log("Adding Charge");
                 chargeBar.addCharge();
             }
             
@@ -83,6 +84,11 @@ public class VoiceAndLoudnessController : MonoBehaviour
             beam.FireBeam(); // Play the beam particle system
             chargeBar.deplete();
         }
+    }
+
+    private void Ha()
+    {
+        attackTracker.BlackFlash();
     }
 
     void OnDestroy()

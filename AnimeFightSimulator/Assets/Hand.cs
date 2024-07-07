@@ -8,6 +8,8 @@ public class Hand : MonoBehaviour
     private Rigidbody rb;
     public float force;
     private AttackAttributes _attackAttributes = new AttackAttributes();
+    public bool left;
+    public AttackTracker _attackTracker;
 
 
     private void Start()
@@ -26,7 +28,7 @@ public class Hand : MonoBehaviour
 
         Damagable dam = other.gameObject.GetComponentInParent<Damagable>();
 
-        if (dam != null)
+        if (left? _attackTracker.getLeftAttacking() : _attackTracker.getRightAttacking() && dam != null)
         {
             _attackAttributes.damage = 10 * rb.velocity.magnitude;
             _attackAttributes.knockback = force * rb.velocity.magnitude;

@@ -16,10 +16,19 @@ public class Knockback : MonoBehaviour
     // Update is called once per frame
     void OnDamage(object sender, AttackAttributes aa)
     {
-        Debug.Log("knockback");
-        foreach (var rb in rbs)
+        if (aa.explosionForce)
         {
-            rb.AddForce(aa.direction * aa.knockback, ForceMode.Impulse);
+            foreach (var rb in rbs)
+            {
+                rb.AddExplosionForce(aa.knockback,aa.origin,10, 0,ForceMode.Impulse);
+            }
+        }
+        else
+        {
+            foreach (var rb in rbs)
+            {
+                rb.AddForce(aa.direction * aa.knockback, ForceMode.Impulse);
+            }
         }
         
     }

@@ -6,6 +6,7 @@ public class AttackAttributes
 {
     public float damage;
     public float knockback;
-    public Vector3 contactPoint;
+    public Vector3 origin;
+    public bool explosionForce;
     public Vector3 direction;
 }
