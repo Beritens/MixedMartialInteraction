@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 6484091930222627312}
   m_Layer: 0
   m_Name: Finalscout
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3404,10 +3404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6071d5e6d94d634ba69b3bc0ed56f9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  point: {x: 0, y: 1, z: 0}
-  p: 20
-  i: 0
-  d: 15
+  point: {x: 0, y: 1, z: 1}
+  p: 3
+  i: 1.53
+  d: 5
 --- !u!1 &7754728036831788187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88c568257c59b90488b1e2d8260d61b4, type: 3}

@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     private float health = 100;
 
     public event EventHandler<float> OnHealthChange; 
+    public event EventHandler onDeath; 
 
 
     private void Start()
@@ -35,7 +36,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        //instead user observer pattern and handle death somewhere else
+        onDeath?.Invoke(this, EventArgs.Empty);
         Object.Destroy(gameObject);
     }
 }

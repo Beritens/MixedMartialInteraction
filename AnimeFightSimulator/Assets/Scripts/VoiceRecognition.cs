@@ -88,6 +88,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
 
     private void Ha()
     {
+        Debug.Log("HA");
         attackTracker.BlackFlash();
     }
 
