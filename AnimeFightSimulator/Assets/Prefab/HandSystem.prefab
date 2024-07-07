@@ -151,6 +151,7 @@ MonoBehaviour:
   force: 40
   left: 0
   _attackTracker: {fileID: 0}
+  soundHandler: {fileID: 0}
 --- !u!114 &6584385945706921292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -323,6 +324,7 @@ MonoBehaviour:
   force: 40
   left: 1
   _attackTracker: {fileID: 0}
+  soundHandler: {fileID: 0}
 --- !u!114 &3912318524760197823
 MonoBehaviour:
   m_ObjectHideFlags: 0

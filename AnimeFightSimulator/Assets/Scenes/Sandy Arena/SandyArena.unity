@@ -1128,11 +1128,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1048342779386886883, guid: a5e3859f6e3156b40a4d4f33f5e9ecf6, type: 3}
   m_PrefabInstance: {fileID: 997642135}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &745910117 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5543992367387224240, guid: a5e3859f6e3156b40a4d4f33f5e9ecf6, type: 3}
-  m_PrefabInstance: {fileID: 997642135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &745910119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2508,6 +2503,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2317386, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2323458, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2341938, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2342128, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2342244, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2353016, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2355152, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2370922, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+    - target: {fileID: 2376632, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
     - target: {fileID: 9593232, guid: 507f5dc602b42c549a32a51aa9236bb1, type: 3}
       propertyPath: m_Avatar
       value: 
@@ -3255,8 +3286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateStep: 0.1
   sampleDataLength: 1024
-  beamEffect: {fileID: 745910117}
+  chargeThreshold: 0
+  beam: {fileID: 0}
   chargeBar: {fileID: 1714468503}
+  attackTracker: {fileID: 0}
 --- !u!114 &1714468499
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,15 +6,18 @@ public class Knockback : MonoBehaviour
 {
     private Damagable dm;
     private Rigidbody[] rbs;
+    private Health health;
     void Start()
     {
         dm = GetComponent<Damagable>();
         dm.OnDamaged += OnDamage;
         rbs = GetComponentsInChildren<Rigidbody>();
+        health = GetComponent<Health>();
+        //health.onDeath += OnDamage;
     }
 
     // Update is called once per frame
-    void OnDamage(object sender, AttackAttributes aa)
+    public void OnDamage(object sender, AttackAttributes aa)
     {
         if (aa.explosionForce)
         {

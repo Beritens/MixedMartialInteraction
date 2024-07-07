@@ -328,6 +328,11 @@ MonoBehaviour:
   zigzagFrequency: 1
   zigzagAngle: 5
   ZigzagTimeRandomness: 0
+  damage: 10
+  damageInterval: 1
+  damageDistance: 5
+  pathSegments: 10
+  deviationMagnitude: 1
 --- !u!1001 &539513590
 PrefabInstance:
   m_ObjectHideFlags: 0
