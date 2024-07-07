@@ -21,6 +21,9 @@ public class AttackTracker : MonoBehaviour
 
     private AttackState leftAttackState = AttackState.Idle;
 
+    public Beam beam;
+    
+
     private bool blackFlashLeft = false;
     private bool blackFlashRight = false;
 
@@ -30,6 +33,12 @@ public class AttackTracker : MonoBehaviour
 
     public event EventHandler OnBlackFlashRight; 
     public event EventHandler OnBlackFlashLeft; 
+    
+    public bool GetIsAttacking()
+    {
+
+        return rightAttackState == AttackState.Attacking || leftAttackState == AttackState.Attacking || beam.IsActive();
+    }
     public bool getRightAttacking()
     {
         return rightAttackState == AttackState.Attacking;

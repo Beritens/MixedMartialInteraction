@@ -59,7 +59,7 @@ public class VoiceAndLoudnessController : MonoBehaviour
 
             
             
-            if (clipLoudness >= chargeThreshold)
+            if (clipLoudness >= chargeThreshold && !attackTracker.GetIsAttacking())
             {
                 chargeBar.addCharge();
             }

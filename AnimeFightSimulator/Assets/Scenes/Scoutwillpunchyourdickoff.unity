@@ -6255,7 +6255,7 @@ MonoBehaviour:
   beamMask:
     serializedVersion: 2
     m_Bits: 55
-  damageAmount: 100000
+  damageAmount: 10
   beamTime: 5
 --- !u!1 &485511266
 GameObject:
@@ -29608,6 +29608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPlane: -0.3
   attackSpeed: 0.3
+  beam: {fileID: 469485346}
   handLeft: {fileID: 2097021210}
   handRight: {fileID: 566653550}
 --- !u!1 &1223870913
@@ -42874,7 +42875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 960069074471574137, guid: 8d44a96bfed7de64ea60dab4ec5fa2aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.154
+      value: 0.411
       objectReference: {fileID: 0}
     - target: {fileID: 960069074471574137, guid: 8d44a96bfed7de64ea60dab4ec5fa2aa, type: 3}
       propertyPath: m_LocalRotation.w

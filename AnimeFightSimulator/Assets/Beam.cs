@@ -13,6 +13,11 @@ public class Beam : MonoBehaviour
     private AttackAttributes _attackAttributes = new AttackAttributes();
 
     public float beamTime;
+
+    public bool IsActive()
+    {
+        return active;
+    }
         // Update is called once per frame
     public void FireBeam()
     {
