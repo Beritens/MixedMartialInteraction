@@ -28,7 +28,7 @@ public class Hand : MonoBehaviour
 
         if (dam != null)
         {
-            _attackAttributes.damage = 10 + 10 * rb.velocity.magnitude;
+            _attackAttributes.damage = 10 * rb.velocity.magnitude;
             _attackAttributes.knockback = force * rb.velocity.magnitude;
             _attackAttributes.direction = rb.velocity.normalized;
            dam.Damage(  _attackAttributes); 
