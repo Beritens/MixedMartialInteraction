@@ -1,9 +1,11 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameOverFunctionality : MonoBehaviour
 {
-    public float maxWaveTime = 30f; // Maximum time allowed per wave
+    public float minWaveTime = 30f; // Maximum time allowed per wave
     private float remainingTime; // Time remaining for the current wave
     private bool isWaveActive = true; // State to track if the wave is active
     private bool isGameOver = false; // Flag to indicate game over state
@@ -12,8 +14,7 @@ public class GameOverFunctionality : MonoBehaviour
 
     void Start()
     {
-        remainingTime = maxWaveTime;
-        EnemySpawner.WaveDuration += CheckWaveTime;
+        remainingTime = minWaveTime;
         EnemySpawner.WaveCompleted += ResetWaveTimer;
         EnemySpawner.WaveStarted += ResetAndStartWaveTimer; // Reset and start the timer when a new wave starts
         EnemySpawner.enemiesToSpawnHandler += UpdateRemainingTimeForNextWave;
@@ -63,14 +64,7 @@ public class GameOverFunctionality : MonoBehaviour
             GUI.Label(detailsRect, "THE BURB HAS CONSUMED YOU", detailsStyle);
         }
     }
-
-    void CheckWaveTime(float duration)
-    {
-        if (duration > maxWaveTime)
-        {
-            GameOver();
-        }
-    }
+    
     
     void PauseTimer()
     {
@@ -91,7 +85,7 @@ public class GameOverFunctionality : MonoBehaviour
     
     void UpdateRemainingTimeForNextWave(int enemiesCount)
     {
-        remainingTime = maxWaveTime + (timePerEnemy * enemiesCount); // Reset the timer based on the number of enemies in the next wave
+        remainingTime = minWaveTime + (timePerEnemy * enemiesCount); // Reset the timer based on the number of enemies in the next wave
     }
 
     void GameOver()
@@ -99,11 +93,26 @@ public class GameOverFunctionality : MonoBehaviour
         isWaveActive = false;
         isGameOver = true;
         Time.timeScale = 0;
+        
+        StartCoroutine(RestartSceneAfterDelay(5));
+        
+    }
+    
+    IEnumerator RestartSceneAfterDelay(float delay)
+    {
+        // Wait for the specified delay time
+        yield return new WaitForSecondsRealtime(delay);
+
+        // Reset the timescale, if the game was paused
+        Time.timeScale = 1;
+
+        // Reload the current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void OnDestroy()
     {
-        EnemySpawner.WaveDuration -= CheckWaveTime;
+        //EnemySpawner.WaveDuration -= CheckWaveTime;
         EnemySpawner.WaveCompleted -= ResetWaveTimer;
         EnemySpawner.WaveStarted -= ResetAndStartWaveTimer;
         EnemySpawner.enemiesToSpawnHandler -= UpdateRemainingTimeForNextWave;

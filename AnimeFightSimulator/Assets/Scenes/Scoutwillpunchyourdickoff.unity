@@ -6319,7 +6319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26dda1e4e89b34d4b9af1b3cf70f1c38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxWaveTime: 10
+  minWaveTime: 30
   timePerEnemy: 10
 --- !u!1001 &494827673
 PrefabInstance:
