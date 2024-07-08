@@ -56,11 +56,13 @@ public class AttackTracker : MonoBehaviour
         { 
             blackFlashLeft = true;
             OnBlackFlashLeft?.Invoke(this,EventArgs.Empty); 
+            soundHandler.PlayBlackFlash();
         } 
         if (!blackFlashRight && rightAttackState != AttackState.Idle)
         {
             blackFlashRight = true;
             OnBlackFlashRight?.Invoke(this,EventArgs.Empty); 
+            soundHandler.PlayBlackFlash();
         } 
     }
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class AttackTracker : MonoBehaviour
         
         if (attackState == AttackState.Idle && rb.position.z >= attackPlane)
         {
-            if (rb.velocity.magnitude >= attackSpeed)
+            if (rb.velocity.z >= attackSpeed)
             {
                 soundHandler.PlayWhoosh();
                 attackState = AttackState.Attacking;
@@ -81,7 +83,7 @@ public class AttackTracker : MonoBehaviour
         }
         else if(attackState == AttackState.Attacking)
         {
-            if (rb.velocity.magnitude < attackSpeed)
+            if (rb.velocity.z < attackSpeed)
             {
                 attackState = AttackState.Returning;
             }

@@ -23,13 +23,13 @@ public class Damagable : MonoBehaviour
         {
             return;
         }
+        damagable = false;
         _health.ChangeHealth(-aa.damage);
         OnDamaged?.Invoke(this, aa);
         StartCoroutine(WaitForCooldown());
     }
     IEnumerator WaitForCooldown()
     {
-        damagable = false;
         yield return new WaitForSeconds(cooldown);
         damagable = true;
     }

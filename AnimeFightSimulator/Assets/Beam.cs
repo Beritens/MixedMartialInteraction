@@ -11,6 +11,7 @@ public class Beam : MonoBehaviour
     public LayerMask beamMask;
     public int damageAmount = 10; // Damage dealt per particle collision
     private AttackAttributes _attackAttributes = new AttackAttributes();
+    public SoundHandler _soundHandler;
 
     public float beamTime;
 
@@ -23,6 +24,7 @@ public class Beam : MonoBehaviour
     {
         vfx.gameObject.SetActive(true);
         vfx.Play();
+        _soundHandler.PlayBeam();
         active = true;
         StartCoroutine(deactivateAfterTime());
     }
@@ -32,6 +34,7 @@ public class Beam : MonoBehaviour
     {
         _attackAttributes.damage = damageAmount;
         _attackAttributes.knockback = 100f;
+        vfx.SetFloat("size",400);
     }
 
     private void FixedUpdate()
@@ -40,20 +43,19 @@ public class Beam : MonoBehaviour
         {
             return;
         }
-        RaycastHit hit;
-        vfx.SetFloat("size",400);
-                // Does the ray intersect any objects excluding the player layer
-                if (Physics.SphereCast(transform.position, 0.5f,  transform.forward ,out hit, Mathf.Infinity, beamMask))
-                {
-                    
-                    Damagable dm = hit.collider.GetComponentInParent<Damagable>();
-                    if (dm != null) // Check if the object has the Enemy tag
-                    {
-                        _attackAttributes.direction = transform.forward;
-                        dm.Damage(_attackAttributes);
-                        vfx.SetFloat("size",hit.distance);
-                    }
-                }
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.5f, transform.forward, Mathf.Infinity, beamMask);
+        // Does the ray intersect any objects excluding the player layer
+        foreach (var hit in hits)
+        {
+            
+            Damagable dm = hit.collider.GetComponentInParent<Damagable>();
+            if (dm != null) // Check if the object has the Enemy tag
+            {
+                _attackAttributes.direction = transform.forward;
+                dm.Damage(_attackAttributes);
+                //vfx.SetFloat("size",hit.distance);
+            }
+        }
     }
 
     IEnumerator deactivateAfterTime()
