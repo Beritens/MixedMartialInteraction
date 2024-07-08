@@ -20,6 +20,8 @@ public class EnemySpawner : MonoBehaviour
     public static event Action WaveCompleted;
     public static event Action WaveStarted;
     public static event Action AllEnemiesDefeated;
+
+    private bool waveActive = false;
     
 
     void Start()
@@ -36,8 +38,10 @@ public class EnemySpawner : MonoBehaviour
 
     void StartNextWave()
     {
+        waveActive = true;
         waveNumber++;
         enemiesToSpawn = waveNumber;
+        enemiesRemaining = enemiesToSpawn;
         enemiesToSpawnHandler?.Invoke(enemiesToSpawn);
         waveStartTime = Time.time; // Record start time of the wave
 
@@ -62,14 +66,18 @@ public class EnemySpawner : MonoBehaviour
         Health enemyHealth = enemy.GetComponent<Health>();
         enemyHealth.onDeath += OnEnemyDefeated;
         
-        enemiesRemaining++;
     }
 
     void OnEnemyDefeated(object sender, EventArgs empty)
     {
         enemiesRemaining--;
+        if (!waveActive)
+        {
+            return;
+        }
         if (enemiesRemaining <= 0)
         {
+            waveActive = false;
             waveStartTime += waveDuration;
             StartCoroutine(WaitAndStartNextWave());
             WaveCompleted?.Invoke();
