@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/MixedMartialInteraction.iml" filepath="$PROJECT_DIR$/.idea/MixedMartialInteraction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/build.iml" filepath="$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/build/build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/launcher.iml" filepath="$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/unityLibrary.iml" filepath="$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/unityLibrary/src/unityLibrary.iml" />
+    </modules>
+  </component>
+</project>

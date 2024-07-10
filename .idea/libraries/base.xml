@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="base">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/UDP_WIFI/Library/Bee/Android/Prj/Mono2x/Gradle/launcher/build/intermediates/merged_java_res/debug/base.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
