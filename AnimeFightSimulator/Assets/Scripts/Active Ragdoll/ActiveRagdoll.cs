@@ -13,7 +13,7 @@ namespace ActiveRagdoll {
     public class ActiveRagdoll : MonoBehaviour {
         [Header("--- GENERAL ---")]
         [SerializeField] private int _solverIterations = 12;
-        [SerializeField] private int _velSolverIterations = 4;
+        [SerializeField] private int _velSolverIterations = 12;
         [SerializeField] private float _maxAngularVelocity = 50;
         public int SolverIterations { get { return _solverIterations; } }
         public int VelSolverIterations { get { return _velSolverIterations; } }
@@ -68,6 +68,7 @@ namespace ActiveRagdoll {
 
             if (_bodyParts.Count == 0)
                 GetDefaultBodyParts();
+
         }
 
         private void Awake() {
@@ -82,7 +83,7 @@ namespace ActiveRagdoll {
                 rb.solverVelocityIterations = _velSolverIterations;
                 rb.maxAngularVelocity = _maxAngularVelocity;
             }
-
+            
             foreach (BodyPart bodyPart in _bodyParts)
                 bodyPart.Init();
 
@@ -118,7 +119,7 @@ namespace ActiveRagdoll {
                 if (boneTransform != null && (boneTransform.TryGetComponent(out ConfigurableJoint joint)))
                     jointList.Add(joint);
             }
-
+            Debug.Log(jointList);
             return jointList;
         }
 
