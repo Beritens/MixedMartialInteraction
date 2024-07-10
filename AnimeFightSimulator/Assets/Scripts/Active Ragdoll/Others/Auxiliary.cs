@@ -52,7 +52,7 @@ namespace ActiveRagdoll {
     public class BodyPart {
         public string bodyPartName;
 
-        [SerializeField] private List<ConfigurableJoint> _joints;
+        [SerializeField] public List<ConfigurableJoint> _joints;
         private List<JointDriveConfig> XjointDriveConfigs;
         private List<JointDriveConfig> YZjointDriveConfigs;
 
